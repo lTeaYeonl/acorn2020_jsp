@@ -15,7 +15,7 @@
 	list.add("html 공부하기");
 	list.add("css 공부하기");
 	list.add("javascript 공부하기");
-%>
+%> 
 	<h1>오늘 할일</h1>
 	<ul>
 	<%for(int i=0;i<list.size(); i++){ %>
