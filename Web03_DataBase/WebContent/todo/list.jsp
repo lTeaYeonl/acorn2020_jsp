@@ -20,19 +20,25 @@
 	%>
 	<div class="container">
 		<blockquote class="blockquote text-center">
-			<p class="mb-0">할일 목록입니다. 어쩌구 저쩌구 레릿고 암더 코리안 힙합 모범 노블레스 오블리제 페뷰레쓰</p>
+			<p class="text-info bg-dark font-weight-bold mb-0">할일 목록</p>
 			<footer class="blockquote-footer">만든이<cite title="Source Title">김지훈</cite></footer>
 		</blockquote>
-		<form action="todo_insert.jsp">
-			<input type="text" name="Content" placeholder="할일을 입력하세요."/>
-			<button type="submit" class="btn btn-primary btn-lg btn-block" >추가</button>
-		</form>
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text">sex</span>
+			</div>
+			<form action="todo_insert.jsp">
+				<input type="text" class="form-control" name="Content" placeholder="할일을 입력하세요."/>
+				<button type="submit" class="btn btn-primary btn-lg btn-block" >추가</button>
+			</form>
+		</div>
 		<table class="table table-bordered table-dark">
 			<thead>
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">할일</th>
 					<th scope="col">등록일</th>
+					<th scope="col">삭제</th>
 				</tr>
 			</thead>	
 			<tbody>
@@ -41,6 +47,7 @@
 						<td scope="row"><%=tmp.getNum() %></td>
 						<td scope="row"><%=tmp.getContent() %></td>
 						<td scope="row"><%=tmp.getRegdate() %></td>
+						<td scope="row"><a href="delete.jsp?num=<%=tmp.getNum() %>">삭제</a></td>
 					</tr>
 				<%} %>
 			</tbody>
