@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/member/list.jsp</title>
+<link rel="stylesheet" href="/Web03_DB/css/bootstrap.css" />
 </head>
 <body>
 <%
@@ -17,25 +18,37 @@
 	List<MemberDto> list=dao.getList();
 %>
 <div class="container">
+	<div class="navbar navbar-expand-sm navbar-dark bg-primary">
+		<a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">Acorn</a>
+	<ul class="navbar-nav">
+		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/member/list.jsp">Member</a></li>
+        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/todo/list.jsp">Todo</a></li>
+	</ul>
+	</div>
 	<h1>회원 목록입니다.</h1>
-	<table>
+	<table class="table table-bordered table-dark table-sm">
 		<thead>
 			<tr>
-				<th>번호</th>
-				<th>이름</th>
-				<th>주소</th>
+				<th scope="col">번호</th>
+				<th scope="col">이름</th>
+				<th scope="col">주소</th>
+				<th scope="col">수정</th>
+				<th scope="col">삭제</th>
 			</tr>
 		</thead>
 		<tbody>
 		<%for(MemberDto tmp:list){ %>
 			<tr>
-				<td><%=tmp.getNum() %></td>
-				<td><%=tmp.getName() %></td>
-				<td><%=tmp.getAddr() %></td>
+				<td scope="row"><%=tmp.getNum() %></td>
+				<td scope="row"><%=tmp.getName() %></td>
+				<td scope="row"><%=tmp.getAddr() %></td>
+				<td scope="row"><a href="updateform.jsp?num=<%=tmp.getNum() %>">수정</a></td>
+				<td scope="row"><a href="delete.jsp?num=<%=tmp.getNum() %>">삭제</a></td>
 			</tr>
 		<%} %>	
 		</tbody>
 	</table>
+	<a href="${pageContext.request.contextPath }/member/insertform.jsp">회원 추가 하러 가기</a>
 </div>
 </body>
 </html>

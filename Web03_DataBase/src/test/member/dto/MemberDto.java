@@ -6,7 +6,14 @@ public class MemberDto {
 	private String addr;
 	
 	public MemberDto() {}
-
+	
+	public MemberDto(int num, String name, String addr) {
+		super();
+		this.num = num;
+		this.name = name;
+		this.addr = addr;
+	}
+	
 	public int getNum() {
 		return num;
 	}

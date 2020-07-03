@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
     <%
     // 할일 삭제하기
-    
     // GET 방식 파라미터로 전달되는 삭제할 글 번호를 읽어와서 숫자로 바꿔준다.
     // delete.jsp?=num=x 
     int num=Integer.parseInt(request.getParameter("num"));

@@ -19,20 +19,29 @@
 		List<TodoListDto> list=dao.getList();
 	%>
 	<div class="container">
+		<div class="navbar navbar-expand-sm navbar-dark bg-primary">
+	      <a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">Acorn</a>
+	      <ul class="navbar-nav">
+	         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/member/list.jsp">Member</a></li>
+	         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/todo/list.jsp">Todo</a></li>
+	      </ul>
+	   	</div>
 		<blockquote class="blockquote text-center">
-			<p class="text-info bg-dark font-weight-bold mb-0">할일 목록</p>
+		<br>
+			<p class="text-white bg-success font-weight-bold mb-0">할일 목록</p>
 			<footer class="blockquote-footer">만든이<cite title="Source Title">김지훈</cite></footer>
 		</blockquote>
-		<div class="input-group">
-			<div class="input-group-prepend">
-				<span class="input-group-text">sex</span>
-			</div>
-			<form action="todo_insert.jsp">
-				<input type="text" class="form-control" name="Content" placeholder="할일을 입력하세요."/>
-				<button type="submit" class="btn btn-primary btn-lg btn-block" >추가</button>
+			<form action="todo_insert.jsp" method="post">
+				<div class="form-row mb-2">
+					<div class="col">
+						<input type="text" class="form-control" name="Content" placeholder="할일을 입력하세요."/>
+					</div>
+					<div class="col">
+						<button type="submit" class="btn btn-success btn-lg btn-block" >추가</button>
+					</div>
+				</div>
 			</form>
-		</div>
-		<table class="table table-bordered table-dark">
+		<table class="table table-bordered table-dark table-sm">
 			<thead>
 				<tr>
 					<th scope="col">#</th>

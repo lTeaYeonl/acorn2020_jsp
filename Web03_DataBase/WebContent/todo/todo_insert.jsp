@@ -27,16 +27,6 @@
 		out.println("<script> 저장에 실패했습니다. </script>");
 	}
 %>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 <!DOCTYPE html>
 <html>
 <head>
