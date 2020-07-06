@@ -24,20 +24,42 @@ MemberDto dto=dao.getData(num);
 </head>
 <body>
 	<div class="container">
+	<div class="navbar navbar-expand-sm navbar-dark bg-primary">
+		<a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">Acorn</a>
+	<ul class="navbar-nav">
+		<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/member/list.jsp">Member</a></li>
+        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/todo/list.jsp">Todo</a></li>
+        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/board/list.jsp">Board</a></li>
+	</ul>
+	</div>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="../index.jsp">Home</a></li>
+		<li class="breadcrumb-item active"><a href="list.jsp">회원목록</a></li>
+		<li class="breadcrumb-item active">수정양식</li>
+	</ol>
 		<h1>회원 정보 수정 폼</h1>
 		<form action="update.jsp" method="post">
 			<label for="num" style="display:none;">번호</label>
+			<!-- disabled 속성이 추가된 input 요소는 수정이 불가능하고 form 을 제출 했을 때 전송도 되어지지 않는다. -->
 			<input type="hidden" name="num" value="<%= dto.getNum() %>" />
-			<label for="num">번호</label>
-			<input type="text" name="num" value="<%= dto.getNum() %>" disabled /><br />
-			<label for="name">이름</label>
-			<input type="text" name="name" value="<%= dto.getName() %>"/><br />
-			<label for="addr">주소</label>
-			<input type="text" name="addr" value="<%= dto.getAddr() %>"/><br />
-			<button type="submit">수정하기</button>
-			<button type="reset">초기화하기</button>
+			<div class="form-group">
+				<label for="num">번호</label>
+				<input class="form-control" type="text" name="num" value="<%= dto.getNum() %>" disabled />
+			</div>
+			<div class="form-group">
+				<label for="name">이름</label>
+				<input class="form-control" type="text" name="name" value="<%= dto.getName() %>"/>
+			</div>
+			<div class="form-group">
+				<label for="addr">주소</label>
+				<input class="form-control" type="text" name="addr" value="<%= dto.getAddr() %>"/>
+			</div>
+			<button class="btn btn-outline-primary btn-sm" type="submit">수정하기</button>
+			<button class="btn btn-outline-warning btn-sm" type="reset">초기화하기</button>
 		</form>
-		<button onclick="location='${pageContext.request.contextPath }/member/list.jsp'">돌아가기</button>
+		<div>
+			<button class="btn btn-outline-danger btn-sm" onclick="location='${pageContext.request.contextPath }/member/list.jsp'">돌아가기</button>
+		</div>
 	</div>
 </body>
 </html>

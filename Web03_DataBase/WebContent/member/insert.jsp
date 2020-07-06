@@ -15,17 +15,19 @@
 	dao.insert(dto);
 	// 3. 응답한다.
 	String cPath=request.getContextPath();
-	response.sendRedirect(cPath+"/member/list.jsp");
+	// response.sendRedirect(cPath+"/member/list.jsp");
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>/member/insert.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>
-	<script>
-		alert(<%= dto.getName() %>+" 님의 정보를 저장했습니다!");
-	</script>
+	<div class="alert alert-success">
+		<strong><%=dto.getName() %></strong> 회원의 정보가 추가 되었습니다.
+		<a class="alert-link" href="list.jsp">확인</a>
+	</div>
 </body>
 </html>
