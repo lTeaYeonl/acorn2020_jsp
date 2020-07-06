@@ -12,10 +12,8 @@
 </head>
 <body>
 	<%
-		// BoardDao 객체의 참조값 얻어오기
-		BoardDao dao=BoardDao.getInstance();
-		// 글 목록 얻어오기
-		List<BoardDto> list=dao.getList();
+		// BoardDao 객체를 이용해서 글 목록 얻어오기
+		List<BoardDto> list=BoardDao.getInstance().getList();
 	%>
 	<div class="container">
 		<div class="navbar navbar-expand-sm navbar-dark bg-primary">
@@ -27,7 +25,7 @@
 		</ul>
 		</div>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="../index.jsp">Home</a></li>
+				<li class="breadcrumb-item"><a href="../index.jsp">Home</a></li>
 			<li class="breadcrumb-item active"><a href="board.jsp">글 목록</a></li>
 		</ol>
 		<h1>글 목록입니다.</h1>
@@ -45,7 +43,7 @@
 					<tr>
 						<td scope="row"><%=tmp.getNum() %></td>
 						<td scope="row"><%=tmp.getWriter() %></td>
-						<td scope="row"><%=tmp.getTitle() %></td>
+						<td scope="row"><a href="detail.jsp?num=<%=tmp.getNum() %>"><%=tmp.getTitle() %></a></td>
 						<td scope="row"><%=tmp.getRegdate() %></td>
 					</tr>
 				<%} %>

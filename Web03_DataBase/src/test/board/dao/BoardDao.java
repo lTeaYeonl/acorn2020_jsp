@@ -29,12 +29,12 @@ public class BoardDao {
 		try {
 			conn=new DbcpBean().getConn();
 			String sql="INSERT INTO board_desc"
-					+ " (num, writer, title, content, regdate"
-					+ " VALUES(board_desc_seq.NEXTVAL, ?, ?, ?, SYSDATE)";
+					+ " (num,writer,title,content,regdate)"
+					+ " VALUES(board_desc_seq.NEXTVAL,?,?,?,SYSDATE)";
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1,  dto.getWriter());
-			pstmt.setString(2,  dto.getTitle());
-			pstmt.setString(3,  dto.getContent());
+			pstmt.setString(1, dto.getWriter());
+			pstmt.setString(2, dto.getTitle());
+			pstmt.setString(3, dto.getContent());
 			flag=pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -46,6 +46,7 @@ public class BoardDao {
 			}
 		}
 		if(flag>0) {
+			System.out.println("컨텐츠 정보를 추가 했습니다");
 			return true; // 작업 성공
 		} else {
 			return false; // 작업 실패
@@ -59,13 +60,13 @@ public class BoardDao {
 		try {
 			conn=new DbcpBean().getConn();
 			String sql="UPDATE board_desc"
-					+ " set writer=?, title=?, content=?, regdate=?"
+					+ " SET writer=?, title=?, content=?, "
 					+ " WHERE num=?";
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1,  dto.getWriter());
 			pstmt.setString(2,  dto.getTitle());
 			pstmt.setString(3,  dto.getContent());
-			pstmt.setString(4,  dto.getRegdate());
+			pstmt.setInt(4,  dto.getNum());
 			flag=pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -119,7 +120,7 @@ public class BoardDao {
 		ResultSet rs=null;
 		try {
 			conn=new DbcpBean().getConn();
-			String sql="SELECT num, writer, title, content, regdate"
+			String sql="SELECT writer,title,content,regdate"
 					+ " FROM board_desc"
 					+ " WHERE num=?";
 			pstmt=conn.prepareStatement(sql);
@@ -133,9 +134,9 @@ public class BoardDao {
 				// 글 하나의 정보를 담는다.
 				dto.setNum(num);
 				dto.setWriter(rs.getString("writer"));
-				dto.setWriter(rs.getString("title"));
-				dto.setWriter(rs.getString("content"));
-				dto.setWriter(rs.getString("regdate"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setRegdate(rs.getString("regdate"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -159,7 +160,7 @@ public class BoardDao {
 		ResultSet rs=null;
 		try {
 			conn=new DbcpBean().getConn();
-			String sql="SELECT num, writer, title, content, TO_CHAR(regdate, 'YYYY\"년\"MM\"월\"DD\"일\" AM HH:MI'') AS regdate"
+			String sql="SELECT num,writer,title,content,regdate"
 					+ " FROM board_desc"
 					+ " ORDER BY num ASC";
 			pstmt=conn.prepareStatement(sql);
@@ -167,20 +168,13 @@ public class BoardDao {
 			rs=pstmt.executeQuery();
 			// 반복문 돌면서 select 된 글정보 읽어오기
 			while(rs.next()) {
-				// 글 정보를 list 에 담아 보세요.
-				int num=rs.getInt("num");
-				String writer=rs.getString("writer");
-				String title=rs.getString("title");
-				String content=rs.getString("content");
-				String regdate=rs.getString("regdate");
-				// BoardDto 객체를 생성해서 글 하나의 정보를 담는다.
 				BoardDto dto=new BoardDto();
 				// 글 하나의 정보를 담는다.
-				dto.setNum(num);
-				dto.setWriter(writer);
-				dto.setTitle(title);
-				dto.setContent(content);
-				dto.setRegdate(regdate);
+				dto.setNum(rs.getInt("num"));
+				dto.setWriter(rs.getString("writer"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setRegdate(rs.getString("regdate"));
 				// BoardDto 객체를 List 에 누적 시킨다.
 				list.add(dto);
 			}

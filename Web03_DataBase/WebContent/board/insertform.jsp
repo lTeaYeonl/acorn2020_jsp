@@ -26,15 +26,15 @@
 		<form action="insert.jsp" method="post">
 			<div class="form-group">
 				<label for="writer">작성자 명</label>
-				<input class="form-control" type="text" name="writer" id="writer" />
+				<input class="form-control" type="text" name="writer" id="writer"  placeholder="50자 이하로 입력해주세요" maxlength="50" oninput="MaxLength(this);" />
 			</div>
 			<div class="form-group">
 				<label for="title">제목</label>
-				<input class="form-control" type="text" name="title" id="title" placeholder="50자 미만으로 입력해주세요" />
+				<input class="form-control" type="text" name="title" id="title" placeholder="100글자 이하로 입력해주세요" maxlength="100" oninput="MaxLength(this);" />
 			</div>
 			<div class="form-group">
 				<label for="content">내용</label>
-				<textarea class="form-control" name="content" id="content" rows="10" placeholder="100글자 미만으로 입력해주세요"></textarea>
+				<textarea class="form-control" name="content" id="content" rows="10" ></textarea>
 			</div>
 			<div class="text-center">
 				<button class="btn btn-outline-primary btn-sm" type="submit">작성완료</button>
@@ -42,5 +42,12 @@
 			</div>
 		</form>
 	</div>
+	<script>
+		function MaxLength(e){
+			if(e.value.length > e.maxLength){
+				e.value=e.value.slice(0, e.maxLength);
+			}
+		}
+	</script>
 </body>
 </html>
