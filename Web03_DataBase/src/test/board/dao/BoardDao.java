@@ -27,14 +27,18 @@ public class BoardDao {
 		PreparedStatement pstmt=null;
 		int flag=0;
 		try {
+			// Connection Pool 에서 Connection 객체를 하나 가지고 온다.
 			conn=new DbcpBean().getConn();
+			// 실행할 sql 문 준비하기
 			String sql="INSERT INTO board_desc"
 					+ " (num,writer,title,content,regdate)"
 					+ " VALUES(board_desc_seq.NEXTVAL,?,?,?,SYSDATE)";
+			// ? 에 바인딩 할 값이 있으면 바인딩 한다.
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getWriter());
 			pstmt.setString(2, dto.getTitle());
 			pstmt.setString(3, dto.getContent());
+			// sql 문 수행하고 update or insert or delete 된 sql 문 결과
 			flag=pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
