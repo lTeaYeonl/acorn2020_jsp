@@ -21,7 +21,7 @@
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/member/list.jsp">Member</a></li>
 	        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/todo/list.jsp">Todo</a></li>
-	        <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/board/board.jsp">Board</a></li>
+	        <li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/board/board.jsp">Board</a></li>
 		</ul>
 		</div>
 		<ol class="breadcrumb">

@@ -1,4 +1,4 @@
-package test.servlet;
+ package test.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,7 +32,6 @@ public class HelloServlet extends HttpServlet{
 		pw.close();
 	}
 }
-
 
 
 

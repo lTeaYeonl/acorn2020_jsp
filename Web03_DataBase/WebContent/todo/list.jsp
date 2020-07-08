@@ -23,7 +23,7 @@
 	      <a class="navbar-brand" href="${pageContext.request.contextPath }/index.jsp">Acorn</a>
 	      <ul class="navbar-nav">
 	         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/member/list.jsp">Member</a></li>
-	         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/todo/list.jsp">Todo</a></li>
+	         <li class="nav-item"><a class="nav-link active" href="${pageContext.request.contextPath }/todo/list.jsp">Todo</a></li>
         <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath }/board/list.jsp">Board</a></li>
 	      </ul>
 	   	</div>

@@ -17,6 +17,7 @@
 		<li><a href="test5/home.jsp">home</a></li>
 		<li><a href="test5/game.jsp">game</a></li>
 		<li><a href="test5/study.jsp">study</a></li>
+		<li><a href="test6/home.jsp">test6home</a></li>
 	</ul>
 </body>
 </html>
