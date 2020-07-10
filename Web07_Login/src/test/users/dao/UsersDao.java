@@ -58,6 +58,7 @@ public class UsersDao {
 		//아이디 비밀번호가 유효한 정보인지 여부를 리턴해준다.
 		return isValid;
 	}
+	
 	//회원정보를 저장하는 메소드 (profile 칼럼은 제외)
 	public boolean insert(UsersDto dto) {
 		Connection conn = null;
@@ -94,3 +95,13 @@ public class UsersDao {
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
