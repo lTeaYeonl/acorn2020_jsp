@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>index.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>
 <%
@@ -14,8 +15,8 @@
 <div class="container">
 	<%if(id != null){ %>
 		<p>
-			<strong><%=id %></strong> 님 로그인중...
-			<a href="users/logout.jsp">로그 아웃</a>
+			<a href="users/info.jsp"><%=id %></a> 님 로그인중...
+			<a href="users/logout.jsp">로그아웃</a>
 		</p>
 	<%} %>
 	<h1>인덱스 페이지 입니다.</h1>
