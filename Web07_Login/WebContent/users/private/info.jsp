@@ -11,7 +11,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/users/info.jsp</title>
+<title>/users/private/info.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>

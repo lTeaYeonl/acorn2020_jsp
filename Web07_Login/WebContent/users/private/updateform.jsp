@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/users/updateform.jsp</title>
+<title>/users/private/updateform.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>/users/pwd_updateform</title>
+<title>/users/private/pwd_updateform</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>
