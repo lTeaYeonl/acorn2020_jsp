@@ -24,6 +24,7 @@
 		<li><a href="users/signup_form.jsp">회원가입</a></li>
 		<li><a href="users/loginform.jsp">로그인</a></li>
 		<li><a href="test/buy.jsp?code=111">111상품 구매하러가기</a></li>
+		<li><a href="ajax/test01.jsp">Ajax 테스트</a></li>
 	</ul>
 </div>
 </body>
