@@ -6,7 +6,7 @@ public class UsersDto {
 	private String email;
 	private String profile;
 	private String regdate;
-	private String newPwd; // 수정할 새 비밀번호
+	private String newPwd; //수정할 새 비밀번호 
 	
 	//디폴트 생성자
 	public UsersDto() {}
@@ -60,6 +60,7 @@ public class UsersDto {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
+
 	public String getNewPwd() {
 		return newPwd;
 	}
@@ -67,5 +68,11 @@ public class UsersDto {
 	public void setNewPwd(String newPwd) {
 		this.newPwd = newPwd;
 	}
-
+	
 }
+
+
+
+
+
+

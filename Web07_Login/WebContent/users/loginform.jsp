@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	// url 파라미터가 넘어오는지 읽어와 보기
-	String url=request.getParameter("url");
-	if(url==null){ // 목적지 정보가 없다면
-		String cPath=request.getContextPath();
-		url=cPath+"/index.jsp"; // 로그인 후 인덱스 페이지로 가도록 하기 위해
-	}
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +7,14 @@
 <title>/users/loginform.jsp</title>
 </head>
 <body>
+<%
+	// url 파라미터가 넘어오는지 읽어와 보기 
+	String url=request.getParameter("url");
+	if(url==null){//목적지 정보가 없다면
+		String cPath=request.getContextPath();
+		url=cPath+"/index.jsp"; //로그인후 인덱스 페이지로 가도록 하기 위해 
+	}
+%>
 <div class="container">
 	<h1>로그인 폼</h1>
 	<form action="login.jsp" method="post">

@@ -16,8 +16,9 @@ public class UsersDao {
 		}
 		return dao;
 	}
-	// 인자로 전달된 아이디가 users 테이블에 존재하는지 여부를 리턴하는 메소드
+	//인자로 전달된 아이디가 users 테이블에 존재하는지 여부를 리턴하는 메소드
 	public boolean isExist(String inputId) {
+		
 		boolean isExist=false;
 		//필요한 객체의 참조값을 담을 지역변수 만들기 
 		Connection conn = null;
@@ -54,9 +55,9 @@ public class UsersDao {
 		}
 		return isExist; //아이디 존재 여부를 리턴한다. 
 	}
-	
-	// 회원정보(이메일)을 수정 반영하는 메소드
-	public boolean updateEmail(UsersDto dto) {
+
+	//회원정보(이메일)를 수정 반영하는 메소드
+	public boolean update(UsersDto dto) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int flag = 0;
@@ -89,7 +90,8 @@ public class UsersDao {
 			return false;
 		}
 	}
-	// 비밀번호를 수정 반영하는 메소드
+	
+	//비밀번호를 수정 반영하는 메소드
 	public boolean updatePwd(UsersDto dto) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -202,6 +204,7 @@ public class UsersDao {
 		}
 		return dto;
 	}
+	
 	//UsersDto 객체에 있는 id, pwd 가 유효한 정보인지 여부를 리턴하는 메소드
 	public boolean isValid(UsersDto dto) {
 		//유효한 정보인지 여부를 담을 지역변수 만들고 초기값 false 부여하기

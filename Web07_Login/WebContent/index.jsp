@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>index.jsp</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.css" />
 </head>
 <body>
 <%
@@ -16,17 +15,19 @@
 	<%if(id != null){ %>
 		<p>
 			<a href="users/private/info.jsp"><%=id %></a> 님 로그인중...
-			<a href="users/logout.jsp">로그아웃</a>
+			<a href="users/logout.jsp">로그 아웃</a>
 		</p>
 	<%} %>
 	<h1>인덱스 페이지 입니다.</h1>
 	<ul>
 		<li><a href="users/signup_form.jsp">회원가입</a></li>
 		<li><a href="users/loginform.jsp">로그인</a></li>
-		<li><a href="test/buy.jsp?code=111">111상품 구매하러가기</a></li>
+		<li><a href="test/buy.jsp?code=111">111번 상품 구입 테스트</a></li>
 		<li><a href="ajax/test01.jsp">Ajax 테스트</a></li>
 		<li><a href="ajax/test02.jsp">Ajax 테스트2</a></li>
 		<li><a href="ajax/test03.jsp">Ajax 테스트3</a></li>
+		<li><a href="file/list.jsp">자료실 목록 보기</a></li>
+		<li><a href="gallery/list.jsp">이미지 목록 보기</a></li>
 	</ul>
 </div>
 </body>
