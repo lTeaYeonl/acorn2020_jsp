@@ -46,7 +46,7 @@
     //전송된 파라미터의 한글 인코딩 설정 
     upload.setHeaderEncoding("utf-8");
     
-    //작업 성공여부                           
+    //작업 성공여부
     boolean isSuccess=false;
     
     try {
