@@ -1,3 +1,5 @@
+<%@page import="test.gallery.dao.GalleryDao"%>
+<%@page import="test.gallery.dto.GalleryDto"%>
 <%@page import="java.util.Map"%>
 <%@page import="org.apache.commons.fileupload.FileItem"%>
 <%@page import="java.util.List"%>
@@ -44,11 +46,12 @@
     //전송된 파라미터의 한글 인코딩 설정 
     upload.setHeaderEncoding("utf-8");
     
-    //폼 전송된 title
-  	String title="";
+    //폼 전송된 caption
+  	String caption="";
     //WebContent 안에서 이미지 파일이 저장된 경로 
-  	String imageSrc="";
-    
+  	String imagePath="";
+    //작업의 성공 여부 
+  	boolean isSuccess=false;
     try {
         //폼전송된 아이템 목록 얻어오기 
         List<FileItem> formItems = upload.parseRequest(request);
@@ -73,37 +76,51 @@
                     item.write(storeFile);
                     
                     //이미지 경로
-                    imageSrc="/upload/"+saveFileName;
+                    imagePath="/upload/"+saveFileName;
                     
                 }else{//폼 필드라면 
                 	
-                	// input name="title" 에 입력한 문자열 읽어오는 부분 2
-                	if(item.getFieldName().equals("title")){
+                	// input name="caption" 에 입력한 문자열 읽어오는 부분 2
+                	if(item.getFieldName().equals("caption")){
                 		//제목 읽어오기
-                		title=item.getString("utf-8");
-                		
+                		caption=item.getString("utf-8");
                 	}
                 
                 }//if
-            }//for
-            
+            }//for     
         }//if
         
+        //작성자
+        String writer=(String)session.getAttribute("id");
+        //업로드된 사진 정보를 Dto 에 담고 
+        GalleryDto dto=new GalleryDto();
+        dto.setWriter(writer);
+        dto.setCaption(caption);
+        dto.setImagePath(imagePath);
+        //DB 에 저장하기
+        isSuccess=GalleryDao.getInstance().insert(dto);
     } catch (Exception ex) {
      
         System.out.println(ex.getMessage());
     }
+   
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>/gallery/test_upload.jsp</title>
+<title>/gallery/private/upload.jsp</title>
 </head>
 <body>
 <div class="container">
-	<h1><%=title %></h1>
-	<img src="${pageContext.request.contextPath }<%=imageSrc %>"/>
+	<%if(isSuccess){ %>
+		<p> 이미지를 업로드 했습니다. <a href="../list.jsp">확인</a></p>
+	<%}else{ %>
+		<p> 업로드 실패! <a href="upload_form.jsp">다시 시도</a></p>
+	<%} %>
 </div>
 </body>
 </html>
+
+
+

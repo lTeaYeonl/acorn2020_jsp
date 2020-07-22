@@ -5,7 +5,7 @@
 <%@page import="org.apache.commons.fileupload.disk.DiskFileItemFactory"%>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="org.apache.commons.fileupload.servlet.ServletFileUpload"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="application/json; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
@@ -93,17 +93,10 @@
      
         System.out.println(ex.getMessage());
     }
+   
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>/gallery/test_upload.jsp</title>
-</head>
-<body>
-<div class="container">
-	<h1><%=title %></h1>
-	<img src="${pageContext.request.contextPath }<%=imageSrc %>"/>
-</div>
-</body>
-</html>
+{"imageSrc":"<%=imageSrc %>"}
+
+
+
+
