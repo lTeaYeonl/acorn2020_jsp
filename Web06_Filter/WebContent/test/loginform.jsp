@@ -9,6 +9,7 @@
 <body>
 	<h1>로그인 폼 입니다.</h1>
 	<form action="login.jsp" method="post">
+<<<<<<< HEAD
 		<div class="form-group">
 			<input class="form-control" type="text" name="id" placeholder="아이디를 입력하세요..."/>
 			<input class="form-control" type="text" name="pwd" placeholder="비밀번호를 입력하세요..."/>
@@ -17,3 +18,14 @@
 	</form>
 </body>
 </html>
+=======
+		<input type="text" name="id" placeholder="아이디..."/>
+		<input type="password" name="pwd" placeholder="비밀번호..."/>
+		<button type="submit">로그인</button>
+	</form>	
+</body>
+</html>
+
+
+
+>>>>>>> refs/remotes/upstream/master

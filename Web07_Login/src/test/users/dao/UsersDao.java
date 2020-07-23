@@ -65,12 +65,22 @@ public class UsersDao {
 			conn = new DbcpBean().getConn();
 			//실행할 sql 문 준비하기 
 			String sql = "UPDATE users"
+<<<<<<< HEAD
 					+ " SET email=?"
 					+ " WHERE id=?";
 			pstmt = conn.prepareStatement(sql);
 			//? 에 바인딩 할 값이 있으면 바인딩한다.
 			pstmt.setString(1, dto.getEmail());
 			pstmt.setString(2, dto.getId());
+=======
+					+ " SET email=?, profile=?"
+					+ " WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			//? 에 바인딩 할 값이 있으면 바인딩한다.
+			pstmt.setString(1, dto.getEmail());
+			pstmt.setString(2, dto.getProfile());
+			pstmt.setString(3, dto.getId());
+>>>>>>> refs/remotes/upstream/master
 			//sql  문 수행하고 update or insert or delete 된 row 의 갯수 리턴받기 
 			flag = pstmt.executeUpdate();
 		} catch (Exception e) {

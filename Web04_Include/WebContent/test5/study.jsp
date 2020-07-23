@@ -14,4 +14,13 @@
 	<h1>study.jsp 입니다.</h1>
 	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ullam cupiditate enim unde nihil fuga dignissimos placeat nostrum praesentium rem nisi distinctio animi error veritatis ipsam natus molestias ab labore!</p>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+
+
+
+
+
+>>>>>>> refs/remotes/upstream/master
